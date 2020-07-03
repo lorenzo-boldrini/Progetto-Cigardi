@@ -10,6 +10,7 @@ public class movement : MonoBehaviour
 
     public float gravity = -9.81f;
 
+
     Vector3 velotity;
     bool IsGrounded;
 
