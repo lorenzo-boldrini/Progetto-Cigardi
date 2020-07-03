@@ -37,7 +37,7 @@ public class movement : MonoBehaviour
 
         controller.Move(move * Speed * Time.deltaTime);
 
-        velotity.y += gravity * 5 * Time.deltaTime;
+        velotity.y += gravity * Time.deltaTime;
         controller.Move(velotity * Time.deltaTime);
     }
 }
