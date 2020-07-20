@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
+    Animator _anim;
     public CharacterController controller;
 
     public float Speed = 12f;
@@ -20,7 +21,7 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,5 +41,7 @@ public class movement : MonoBehaviour
 
         velotity.y += gravity * Time.deltaTime;
         controller.Move(velotity * Time.deltaTime);
+
+        _anim.SetFloat("inputX", Z);
     }
 }
