@@ -18,6 +18,9 @@ public class movement : MonoBehaviour
     public Transform Groundceck;
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
+
+
+    public FMODUnity.StudioEventEmitter StepSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +46,10 @@ public class movement : MonoBehaviour
         controller.Move(velotity * Time.deltaTime);
 
         _anim.SetFloat("inputX", Z);
+    }
+
+    public void SoundStep()
+    {
+        StepSound.Play();
     }
 }

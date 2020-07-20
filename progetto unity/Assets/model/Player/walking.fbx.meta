@@ -60,7 +60,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.28666666
-        functionName: NewEvent
+        functionName: SoundStep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.74333334
+        functionName: SoundStep
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
