@@ -6,6 +6,7 @@ public class mouseController : MonoBehaviour
 {
     public float mouse_Sesibility = 100f;
     public Transform playerBody;
+    public Transform head;
 
     float Xrotation = 0f;
 
@@ -23,5 +24,7 @@ public class mouseController : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(Xrotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+        transform.position = head.position;
+
     }
 }
