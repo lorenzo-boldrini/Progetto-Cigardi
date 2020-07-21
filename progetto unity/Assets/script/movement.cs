@@ -25,7 +25,7 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        Input_Manager.INPUTMAN.Walk.AddListener(Test);
+
     }
 
     // Update is called once per frame
@@ -41,6 +41,17 @@ public class movement : MonoBehaviour
             if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
                 RunBarCounter += 1 * Time.deltaTime;
         }
+
+
+
+        IsGrounded = Physics.CheckSphere(Groundceck.position, GroundDistance, GroundMask);
+        if (IsGrounded && velotity.y < 0)
+        {
+            velotity.y = -2f;
+        }
+        velotity.y += gravity * Time.deltaTime;
+        controller.Move(velotity * Time.deltaTime);
+        Test();
     }
 
     void Test()
@@ -60,11 +71,7 @@ public class movement : MonoBehaviour
 
 
 
-            IsGrounded = Physics.CheckSphere(Groundceck.position, GroundDistance, GroundMask);
-        if (IsGrounded && velotity.y < 0)
-        {
-            velotity.y = -2f;
-        }
+           
         float X = Input.GetAxis("Horizontal");
         float Z = Input.GetAxis("Vertical");
 
@@ -72,8 +79,7 @@ public class movement : MonoBehaviour
 
         controller.Move(move * Speed * Time.deltaTime);
 
-        velotity.y += gravity * Time.deltaTime;
-        controller.Move(velotity * Time.deltaTime);
+       
 
         _anim.SetFloat("inputX", Z);
         _anim.SetFloat("inputZ", X);

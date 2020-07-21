@@ -12,7 +12,7 @@ public class mouseController : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
     {
@@ -23,7 +23,7 @@ public class mouseController : MonoBehaviour
         Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(Xrotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        playerBody.Rotate(new Vector3(0, mouseX,0));
         transform.position = head.position;
 
     }
