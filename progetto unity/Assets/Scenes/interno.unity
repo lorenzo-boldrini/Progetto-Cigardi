@@ -24036,6 +24036,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1051849199 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6498829869095048649, guid: c57831b5adcce6a478604cf6f9e2300c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1119385978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1062080003
 Mesh:
   m_ObjectHideFlags: 0
@@ -25301,6 +25307,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1443566876, guid: c57831b5adcce6a478604cf6f9e2300c, type: 3}
+      propertyPath: _anim
+      value: 
+      objectReference: {fileID: 1712037947}
+    - target: {fileID: 1443566877, guid: c57831b5adcce6a478604cf6f9e2300c, type: 3}
+      propertyPath: m_MinMoveDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507548364550185271, guid: c57831b5adcce6a478604cf6f9e2300c,
+        type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 1051849199}
     - target: {fileID: 5507548365393730906, guid: c57831b5adcce6a478604cf6f9e2300c,
         type: 3}
       propertyPath: m_Name
@@ -25309,7 +25328,7 @@ PrefabInstance:
     - target: {fileID: 5507548365393730906, guid: c57831b5adcce6a478604cf6f9e2300c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5507548365393730907, guid: c57831b5adcce6a478604cf6f9e2300c,
         type: 3}
@@ -35332,6 +35351,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 759bbc1fdc990494fada90eda74e179e, type: 3}
+--- !u!95 &1712037947 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4216155736961159361, guid: c57831b5adcce6a478604cf6f9e2300c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1119385978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1722447721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6167814896629789342, guid: a1ad83fdb38079547acc07f7353a25dd,
