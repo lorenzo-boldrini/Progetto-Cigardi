@@ -19,8 +19,9 @@ public class movement : MonoBehaviour
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
 
-    public float RunBarCounter = 2;
-    float oldEulerAnglesY;
+    public float RunBarCounter = 20;
+
+    public float LRSpeed;
     // Start is called before the first frame update
     public void Start()
     {
@@ -48,27 +49,31 @@ public class movement : MonoBehaviour
         }
         velotity.y += gravity * Time.deltaTime;
         Test();
-        Animrotaion();
+        //Animrotaion();
        
     }
 
 
-    void Animrotaion()
+   /* void Animrotaion()
     {
         float RotationDirection = oldEulerAnglesY - transform.rotation.eulerAngles.y;
         oldEulerAnglesY = transform.rotation.eulerAngles.y;
 
         Debug.Log(RotationDirection);
-        if(RotationDirection > 0.1f)
+        if(RotationDirection > 1f)
         {
             _anim.SetFloat("Idle", 1);
-        }else if(RotationDirection < -0.1f)
+        }else if(RotationDirection < -1f)
         {
             _anim.SetFloat("Idle", -1);
         }
+        else
+        {
+            _anim.SetFloat("Idle", 0);
+        }
         
 
-    }
+    }*/
     void Test()
     {
 
@@ -79,25 +84,31 @@ public class movement : MonoBehaviour
         float Z = Input.GetAxis("Vertical");
 
 
+        _anim.SetFloat("moveZ", X);
 
-       
-
-        _anim.SetFloat("Blend", Speed);
-
+        transform.Translate(Vector3.left * X * LRSpeed * Time.deltaTime * -1);
 
 
+        _anim.SetFloat("moveX", Speed);
 
-        if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Run") == 0)
+
+
+
+        if (Input.GetAxis("Vertical") > 0.1f)
         {
-            Speed = 1;
+            Speed = Z;
         }
         if (Input.GetButton("Run") && Input.GetAxis("Vertical") != 0 && RunBarCounter > 0)
         {
-            Speed = 2;
+            Speed = Z * 2;
             RunBarCounter -= 1 * Time.deltaTime;
         }
+        else if(Input.GetAxis("Vertical") == 0)
+        {
+            Speed = 0;
+        }
+       
 
     }
-
    
 }
