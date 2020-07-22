@@ -14,7 +14,9 @@ public class mouseController : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.Locked;
     }
-    private void Update()
+
+   
+    private void FixedUpdate()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouse_Sesibility * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouse_Sesibility * Time.deltaTime;

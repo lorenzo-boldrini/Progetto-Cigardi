@@ -76,8 +76,8 @@ ModelImporter:
       name: CINEMA_4D_Main (1)
       takeName: CINEMA_4D_Main
       internalID: 0
-      firstFrame: 59
-      lastFrame: 88
+      firstFrame: 60
+      lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -105,7 +105,7 @@ ModelImporter:
       name: CINEMA_4D_Main
       takeName: CINEMA_4D_Main
       internalID: 0
-      firstFrame: 183
+      firstFrame: 184
       lastFrame: 214
       wrapMode: 0
       orientationOffsetY: 0
@@ -129,7 +129,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 183
+      additiveReferencePoseFrame: 196
     - serializedVersion: 16
       name: CINEMA_4D_Main (1)
       takeName: CINEMA_4D_Main

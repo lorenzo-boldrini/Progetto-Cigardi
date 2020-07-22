@@ -5,7 +5,7 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     public Animator _anim;
-    public CharacterController controller;
+    Rigidbody _RG;
 
     public float Speed = 12f;
 
@@ -19,24 +19,21 @@ public class movement : MonoBehaviour
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
 
-    public float RunBarCounter = 20;
-
-
+    public float RunBarCounter = 2;
+    float oldEulerAnglesY;
     // Start is called before the first frame update
     public void Start()
     {
-
+        _RG = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
 
     private void Update()
     {
-        Debug.Log(RunBarCounter);
 
         if (Input.GetButton("Run") == false && RunBarCounter <= 20)
         {
-            Debug.Log("Riprendi il fiato");
             RunBarCounter += 1 * Time.deltaTime;
             if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
                 RunBarCounter += 1 * Time.deltaTime;
@@ -50,24 +47,30 @@ public class movement : MonoBehaviour
             velotity.y = -2f;
         }
         velotity.y += gravity * Time.deltaTime;
-        controller.Move(velotity * Time.deltaTime);
         Test();
+        Animrotaion();
+       
     }
 
+
+    void Animrotaion()
+    {
+        float RotationDirection = oldEulerAnglesY - transform.rotation.eulerAngles.y;
+        oldEulerAnglesY = transform.rotation.eulerAngles.y;
+
+        Debug.Log(RotationDirection);
+        if(RotationDirection > 0.1f)
+        {
+            _anim.SetFloat("Idle", 1);
+        }else if(RotationDirection < -0.1f)
+        {
+            _anim.SetFloat("Idle", -1);
+        }
+        
+
+    }
     void Test()
     {
-        if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Run") == 0)
-        {
-
-            Speed = 10;
-            _anim.SetBool("Run", false);
-        }
-        if (Input.GetButton("Run") && Input.GetAxis("Vertical") != 0)
-        {
-            RunBarCounter -= 1 * Time.deltaTime;
-            _anim.SetBool("Run", true);
-            Speed = 20;
-        }
 
 
 
@@ -75,16 +78,24 @@ public class movement : MonoBehaviour
         float X = Input.GetAxis("Horizontal");
         float Z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * X + transform.forward * Z;
 
-        controller.Move(move * Speed * Time.deltaTime);
 
        
 
-        _anim.SetFloat("inputX", Z);
-        _anim.SetFloat("inputZ", X);
+        _anim.SetFloat("Blend", Speed);
 
 
+
+
+        if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Run") == 0)
+        {
+            Speed = 1;
+        }
+        if (Input.GetButton("Run") && Input.GetAxis("Vertical") != 0 && RunBarCounter > 0)
+        {
+            Speed = 2;
+            RunBarCounter -= 1 * Time.deltaTime;
+        }
 
     }
 
