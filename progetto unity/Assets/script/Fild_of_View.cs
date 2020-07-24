@@ -13,6 +13,10 @@ public class Fild_of_View : MonoBehaviour
     public Animator _anim;
     
     private bool isInFov = false;
+
+    private void Awake()
+    {
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -83,10 +87,9 @@ public class Fild_of_View : MonoBehaviour
             _NMA.destination = Player.position;
         }
 
-        if (_NMA.angularSpeed != 0)
-            _anim.SetBool("move", true);
-        else
-            _anim.SetBool("move", false);
+        _anim.SetFloat("move", _NMA.velocity.z);
 
+
+        
     }
 }

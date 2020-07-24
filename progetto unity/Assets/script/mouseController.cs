@@ -29,7 +29,7 @@ public class mouseController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(Xrotation, 0f, 0f);
         if (HM < 0.1f)
         {
-            if (mouseX > 5f || mouseX < -5f)
+            if (mouseX > 1f || mouseX < -1f)
                 _anim.SetFloat("Idle", mouseX);
             else
                 _anim.SetFloat("Idle", 0);

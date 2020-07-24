@@ -9,7 +9,7 @@ AnimatorController:
   m_Name: Monster_Animator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Blend
+  - m_Name: move
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -46,27 +46,25 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 3845280ecbe53154281a0c832de420b0,
-      type: 3}
-    m_Threshold: 10
+    m_Motion: {fileID: 7400000, guid: 287344d27410a614da366182a9aa4373, type: 2}
+    m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 13368ac01fd124b4f8f69730f930f4d3,
-      type: 3}
-    m_Threshold: 20
+    m_Motion: {fileID: 7400000, guid: b07e7a3ed0feb624e848660da37f972a, type: 2}
+    m_Threshold: 8
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Blend
+  m_BlendParameter: move
   m_BlendParameterY: Blend
   m_MinThreshold: 0
-  m_MaxThreshold: 20
+  m_MaxThreshold: 8
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
