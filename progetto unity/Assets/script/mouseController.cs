@@ -19,16 +19,24 @@ public class mouseController : MonoBehaviour
    
     private void FixedUpdate()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouse_Sesibility * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y") * mouse_Sesibility * Time.deltaTime;
+        float HM = Input.GetAxis("Vertical");
         
         Xrotation -= mouseY;
         Xrotation = Mathf.Clamp(Xrotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(Xrotation, 0f, 0f);
-        _anim.SetFloat("Idle", mouseX);
+        if (HM < 0.1f)
+        {
+            if (mouseX > 5f || mouseX < -5f)
+                _anim.SetFloat("Idle", mouseX);
+            else
+                _anim.SetFloat("Idle", 0);
+        }
+       
 
-        playerBody.Rotate(Vector3.up * mouseX);
+        playerBody.Rotate(Vector3.up * mouseX * mouse_Sesibility * Time.deltaTime);
 
     }
 }

@@ -6,6 +6,7 @@ public class movement : MonoBehaviour
 {
     public Animator _anim;
     Rigidbody _RG;
+    CharacterController _CC;
 
     public float Speed = 12f;
 
@@ -26,6 +27,7 @@ public class movement : MonoBehaviour
     public void Start()
     {
         _RG = GetComponent<Rigidbody>();
+        _CC = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -49,31 +51,11 @@ public class movement : MonoBehaviour
         }
         velotity.y += gravity * Time.deltaTime;
         Test();
-        //Animrotaion();
        
     }
 
 
-   /* void Animrotaion()
-    {
-        float RotationDirection = oldEulerAnglesY - transform.rotation.eulerAngles.y;
-        oldEulerAnglesY = transform.rotation.eulerAngles.y;
-
-        Debug.Log(RotationDirection);
-        if(RotationDirection > 1f)
-        {
-            _anim.SetFloat("Idle", 1);
-        }else if(RotationDirection < -1f)
-        {
-            _anim.SetFloat("Idle", -1);
-        }
-        else
-        {
-            _anim.SetFloat("Idle", 0);
-        }
-        
-
-    }*/
+  
     void Test()
     {
 
@@ -86,13 +68,13 @@ public class movement : MonoBehaviour
 
         _anim.SetFloat("moveZ", X);
 
-        transform.Translate(Vector3.left * X * LRSpeed * Time.deltaTime * -1);
-
 
         _anim.SetFloat("moveX", Speed);
 
 
+        Vector3 move = transform.right * X + transform.forward * Z;
 
+        _CC.Move(move * LRSpeed * Time.deltaTime);
 
         if (Input.GetAxis("Vertical") > 0.1f)
         {
