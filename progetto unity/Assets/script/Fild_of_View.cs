@@ -11,11 +11,13 @@ public class Fild_of_View : MonoBehaviour
 
     NavMeshAgent _NMA;
     public Animator _anim;
+
     
     private bool isInFov = false;
 
     private void Awake()
     {
+       
     }
     private void OnDrawGizmos()
     {
@@ -37,6 +39,8 @@ public class Fild_of_View : MonoBehaviour
 
         Gizmos.color = Color.black;
         Gizmos.DrawLine(transform.position, (Player.position - transform.position).normalized * MaxRadius);
+
+      
     }
 
     public static bool InFOV(Transform checkInObject, Transform target, float maxAngle,float maxRadius)
