@@ -9,18 +9,24 @@ public class Fild_of_View : MonoBehaviour
     public float MaxAngle;
     public float MaxRadius;
 
+    public List<GameObject> WAYPOINT;
+
     NavMeshAgent _NMA;
     public Animator _anim;
 
     
     private bool isInFov = false;
 
+    [SerializeField] float areaWaypoint = 1;
+
     private void Awake()
     {
-       
+        WAYPOINT = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoint>().waypoint;
     }
     private void OnDrawGizmos()
     {
+
+        //area di vista
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, MaxRadius);
 
@@ -40,7 +46,11 @@ public class Fild_of_View : MonoBehaviour
         Gizmos.color = Color.black;
         Gizmos.DrawLine(transform.position, (Player.position - transform.position).normalized * MaxRadius);
 
-      
+        //area cambio waypoint
+        foreach(GameObject GO in WAYPOINT)
+        {
+            Gizmos.DrawWireSphere(GO.transform.position, areaWaypoint);
+        }
     }
 
     public static bool InFOV(Transform checkInObject, Transform target, float maxAngle,float maxRadius)
@@ -90,10 +100,34 @@ public class Fild_of_View : MonoBehaviour
         {
             _NMA.destination = Player.position;
         }
+        else
+        {
+            WayPoint();
+        }
 
         _anim.SetFloat("move", _NMA.velocity.z);
-
-
         
     }
+
+
+    int destination = -1;
+    void WayPoint()
+    {
+        if (destination == -1)
+            destination = Random.Range(0, WAYPOINT.Count);
+        var distance = Vector3.Distance(WAYPOINT[destination].transform.position, Player.transform.position);
+        _NMA.destination = WAYPOINT[destination].transform.position;
+
+        if (distance < areaWaypoint)
+        {
+            destination = Random.Range(0, WAYPOINT.Count);
+            Debug.Log("nuova destinazione");
+        }
+    }
+
+    
+
+
+
+
 }
