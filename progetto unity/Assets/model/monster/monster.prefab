@@ -43,7 +43,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 4
-  m_Speed: 8.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -70,7 +70,9 @@ MonoBehaviour:
   Player: {fileID: 0}
   MaxAngle: 60
   MaxRadius: 50
+  WAYPOINT: []
   _anim: {fileID: 525484490012057131}
+  areaWaypoint: 1
 --- !u!95 &525484490012057131
 Animator:
   serializedVersion: 3

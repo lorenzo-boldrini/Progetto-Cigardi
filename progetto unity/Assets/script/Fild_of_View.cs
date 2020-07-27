@@ -19,6 +19,8 @@ public class Fild_of_View : MonoBehaviour
 
     [SerializeField] float areaWaypoint = 1;
 
+    Vector3 lastframePos;
+
     private void Awake()
     {
         WAYPOINT = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoint>().waypoint;
@@ -90,22 +92,27 @@ public class Fild_of_View : MonoBehaviour
 
     private void Start()
     {
+        lastframePos = transform.position; 
         _NMA = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
+        animationController();
         isInFov = InFOV(transform, Player, MaxAngle, MaxRadius);
         if (isInFov)
         {
+            _NMA.speed = 20;
             _NMA.destination = Player.position;
         }
         else
         {
+            _NMA.speed = 10;
             WayPoint();
         }
 
-        _anim.SetFloat("move", _NMA.velocity.z);
+        
+
         
     }
 
@@ -115,19 +122,31 @@ public class Fild_of_View : MonoBehaviour
     {
         if (destination == -1)
             destination = Random.Range(0, WAYPOINT.Count);
-        var distance = Vector3.Distance(WAYPOINT[destination].transform.position, Player.transform.position);
-        _NMA.destination = WAYPOINT[destination].transform.position;
+        var distance = Vector3.Distance(WAYPOINT[destination].transform.position, transform.position);
+        _NMA.SetDestination (WAYPOINT[destination].transform.position);
 
         if (distance < areaWaypoint)
         {
-            destination = Random.Range(0, WAYPOINT.Count);
-            Debug.Log("nuova destinazione");
+            destination = -1;
         }
     }
 
     
 
+    void animationController()
+    {
+        var currentFramePos = transform.position;
+        var distance = Vector3.Distance(lastframePos, currentFramePos);
 
+        lastframePos = currentFramePos;
+
+        float currentspeed = Mathf.Abs(distance) / Time.deltaTime;
+
+        Debug.Log(currentspeed);
+
+
+        _anim.SetFloat("move", Mathf.Abs(currentspeed));
+    }
 
 
 }
