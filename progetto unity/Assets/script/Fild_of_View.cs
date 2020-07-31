@@ -125,12 +125,12 @@ public class Fild_of_View : MonoBehaviour
             _NMA.speed = 20;
             _NMA.destination = Player.position;
         }
-        else if(Distance > MaxRadiusWalk)
+        else if(Distance > MaxRadiusWalk && Input.GetAxis("Vertical") == 0)
         {
             _NMA.speed = 10;
             WayPoint();
         }
-        else
+        else if (Distance > MaxRadiusWalk && Input.GetAxis("Vertical") != 0)
         {
             followPlayer();
         }
