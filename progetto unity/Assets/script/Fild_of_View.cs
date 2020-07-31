@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,8 +9,12 @@ public class Fild_of_View : MonoBehaviour
     public Transform Player;
     public float MaxAngle;
     public float MaxRadius;
+    public float MaxRadiusRun;
+    public float MaxRadiusWalk;
 
     public List<GameObject> WAYPOINT;
+    public List<GameObject> listaWA;
+
 
     NavMeshAgent _NMA;
     public Animator _anim;
@@ -20,6 +25,7 @@ public class Fild_of_View : MonoBehaviour
     [SerializeField] float areaWaypoint = 1;
 
     Vector3 lastframePos;
+
 
     private void Awake()
     {
@@ -53,6 +59,16 @@ public class Fild_of_View : MonoBehaviour
         {
             Gizmos.DrawWireSphere(GO.transform.position, areaWaypoint);
         }
+
+
+        // area suono corsa
+        Gizmos.color = Color.grey;
+        Gizmos.DrawWireSphere(transform.position, MaxRadiusRun);
+
+
+        // Area suono camminata
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, MaxRadiusWalk);
     }
 
     public static bool InFOV(Transform checkInObject, Transform target, float maxAngle,float maxRadius)
@@ -98,22 +114,31 @@ public class Fild_of_View : MonoBehaviour
 
     private void Update()
     {
+        reorderWaypoint();
+
         animationController();
+
+        var Distance = Vector3.Distance(transform.position, Player.position);
         isInFov = InFOV(transform, Player, MaxAngle, MaxRadius);
         if (isInFov)
         {
             _NMA.speed = 20;
             _NMA.destination = Player.position;
         }
-        else
+        else if(Distance > MaxRadiusWalk)
         {
             _NMA.speed = 10;
             WayPoint();
         }
+        else
+        {
+            followPlayer();
+        }
 
-        
+        RunFollow();
 
-        
+
+
     }
 
 
@@ -121,7 +146,7 @@ public class Fild_of_View : MonoBehaviour
     void WayPoint()
     {
         if (destination == -1)
-            destination = Random.Range(0, WAYPOINT.Count);
+            destination = Random.Range(0, 2);
         var distance = Vector3.Distance(WAYPOINT[destination].transform.position, transform.position);
         _NMA.SetDestination (WAYPOINT[destination].transform.position);
 
@@ -142,11 +167,36 @@ public class Fild_of_View : MonoBehaviour
 
         float currentspeed = Mathf.Abs(distance) / Time.deltaTime;
 
-        Debug.Log(currentspeed);
+
 
 
         _anim.SetFloat("move", Mathf.Abs(currentspeed));
     }
 
 
+
+    void reorderWaypoint()
+    {
+        listaWA = WAYPOINT.OrderBy(o => o.GetComponent<Waypoint_manager>().distance).ToList();
+        WAYPOINT.Clear();
+        WAYPOINT = listaWA;
+    }
+
+
+
+    void RunFollow()
+    {
+        var distance = Vector3.Distance(transform.position, Player.position);
+        if(distance < MaxRadiusRun && Input.GetButton("Run"))
+        {
+            _NMA.SetDestination(Player.transform.position);
+        }
+    }
+
+
+    void followPlayer()
+    {
+        _NMA.speed = 8;
+        _NMA.SetDestination (Player.position);
+    }
 }
