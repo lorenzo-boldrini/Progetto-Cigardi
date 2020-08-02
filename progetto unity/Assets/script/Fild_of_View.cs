@@ -13,7 +13,7 @@ public class Fild_of_View : MonoBehaviour
     public float MaxRadiusWalk;
 
     public List<GameObject> WAYPOINT;
-    public List<GameObject> listaWA;
+    List<GameObject> listaWA;
 
 
     NavMeshAgent _NMA;
@@ -125,17 +125,21 @@ public class Fild_of_View : MonoBehaviour
             _NMA.speed = 20;
             _NMA.destination = Player.position;
         }
-        else if(Distance > MaxRadiusWalk && Input.GetAxis("Vertical") == 0)
+        else if (Distance < MaxRadiusWalk)
+        {
+            if (Input.GetAxis("Vertical") == 0)
+                stop();
+            else
+                followPlayer();
+
+        }
+        else
         {
             _NMA.speed = 10;
             WayPoint();
         }
-        else if (Distance > MaxRadiusWalk && Input.GetAxis("Vertical") != 0)
-        {
-            followPlayer();
-        }
 
-        RunFollow();
+        RunFollow(Distance);
 
 
 
@@ -154,6 +158,7 @@ public class Fild_of_View : MonoBehaviour
         {
             destination = -1;
         }
+
     }
 
     
@@ -184,9 +189,8 @@ public class Fild_of_View : MonoBehaviour
 
 
 
-    void RunFollow()
+    void RunFollow(float distance)
     {
-        var distance = Vector3.Distance(transform.position, Player.position);
         if(distance < MaxRadiusRun && Input.GetButton("Run"))
         {
             _NMA.SetDestination(Player.transform.position);
@@ -198,5 +202,24 @@ public class Fild_of_View : MonoBehaviour
     {
         _NMA.speed = 8;
         _NMA.SetDestination (Player.position);
+    }
+
+
+    float counter = 0;
+    bool Canmove;
+    void stop()
+    {
+        
+        counter += 1 * Time.deltaTime;
+        if(counter > Random.Range(3, 8) && !Canmove)
+        {
+            _NMA.isStopped = true;
+            _NMA.speed = 0;
+        }
+        else
+        {
+            _NMA.isStopped = false;
+            _NMA.speed = 10;
+        }
     }
 }
