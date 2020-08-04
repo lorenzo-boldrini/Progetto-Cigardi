@@ -137,6 +137,7 @@ public class Fild_of_View : MonoBehaviour
         {
             _NMA.speed = 10;
             WayPoint();
+            counter = 0;
         }
 
         RunFollow(Distance);
@@ -209,17 +210,19 @@ public class Fild_of_View : MonoBehaviour
     bool Canmove;
     void stop()
     {
-        
-        counter += 1 * Time.deltaTime;
-        if(counter > Random.Range(3, 8) && !Canmove)
+        int randomT = Random.Range(3, 8);
+
+        if(counter <= randomT && Input.GetAxis("Vertical") == 0)
         {
+            counter += 1 * Time.deltaTime;
             _NMA.isStopped = true;
             _NMA.speed = 0;
         }
-        else
+        else if (counter >= randomT)
         {
             _NMA.isStopped = false;
             _NMA.speed = 10;
+
         }
     }
 }
