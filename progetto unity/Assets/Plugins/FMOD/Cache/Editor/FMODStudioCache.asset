@@ -68,16 +68,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 6501803286541343060}
-  - {fileID: 2885829793092425644}
+  - {fileID: 4849884242745959682}
   EditorEvents:
   - {fileID: 7113749709140556011}
   - {fileID: 5780155873386819905}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2885829793092425644}
+  - {fileID: 4849884242745959682}
   StringsBanks:
   - {fileID: 6501803286541343060}
-  stringsBankWriteTime: 637309361911191112
+  stringsBankWriteTime: 637313811486738919
   cacheVersion: 3
 --- !u!114 &984217036693297166
 MonoBehaviour:
@@ -133,6 +133,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &4849884242745959682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod_Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637313811486738919
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5780155873386819905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +166,7 @@ MonoBehaviour:
   Path: event:/passo
   guid: 9f9d27b93eedc04997c237a71b1d89c2
   Banks:
-  - {fileID: 2885829793092425644}
+  - {fileID: 4849884242745959682}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -170,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Fmod_Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637309361911191112
+  lastModified: 637313811486738919
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -191,7 +209,7 @@ MonoBehaviour:
   Path: event:/Drone
   guid: 8c66ebd3d4072246ad3e8f09583e2540
   Banks:
-  - {fileID: 2885829793092425644}
+  - {fileID: 4849884242745959682}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
