@@ -15,6 +15,9 @@ public class Fild_of_View : MonoBehaviour
     public List<GameObject> WAYPOINT;
     List<GameObject> listaWA;
 
+    [SerializeField]
+    int speed = 12;
+
 
     NavMeshAgent _NMA;
     public Animator _anim;
@@ -25,6 +28,8 @@ public class Fild_of_View : MonoBehaviour
     [SerializeField] float areaWaypoint = 1;
 
     Vector3 lastframePos;
+
+    bool StopSM;
 
 
     private void Awake()
@@ -127,18 +132,16 @@ public class Fild_of_View : MonoBehaviour
         }
         else if (Distance < MaxRadiusWalk)
         {
-            if (Input.GetAxis("Vertical") == 0)
-                stop();
-            else
-                followPlayer();
-
+            stop();
         }
-        else
+        else if(Distance > MaxRadiusWalk)
         {
-            _NMA.speed = 10;
+            StopSM = false;
+            _NMA.speed = speed;
             WayPoint();
             counter = 0;
         }
+       
 
         RunFollow(Distance);
 
@@ -203,6 +206,8 @@ public class Fild_of_View : MonoBehaviour
     {
         _NMA.speed = 8;
         _NMA.SetDestination (Player.position);
+        _NMA.isStopped = false;
+        _NMA.speed = speed;
     }
 
 
@@ -210,19 +215,29 @@ public class Fild_of_View : MonoBehaviour
     bool Canmove;
     void stop()
     {
+        StopSM = true;
         int randomT = Random.Range(3, 8);
 
-        if(counter <= randomT && Input.GetAxis("Vertical") == 0)
+        if(counter <= randomT)
         {
-            counter += 1 * Time.deltaTime;
-            _NMA.isStopped = true;
-            _NMA.speed = 0;
+            if (Input.GetAxis("Vertical") == 0)
+            {
+                counter += 1 * Time.deltaTime;
+                _NMA.isStopped = true;
+                _NMA.speed = 0;
+            }
+            else
+            {
+                followPlayer();
+            }
+        }else if(Input.GetAxis("Vertical") != 0)
+        {
+            followPlayer();
         }
         else if (counter >= randomT)
         {
             _NMA.isStopped = false;
             _NMA.speed = 10;
-
         }
     }
 }

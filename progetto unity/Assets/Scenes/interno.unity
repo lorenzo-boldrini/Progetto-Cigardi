@@ -4094,7 +4094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01bb71c7dc9fa49469048e087b72ba67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 1654553276}
 --- !u!4 &83331062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 76e44929bf2dd674ba3817971d6268c4,
@@ -16416,6 +16415,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 997926893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &571197408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8388807845312993369, guid: 940c43efdfbb262458af26d8abc1b640,
+    type: 3}
+  m_PrefabInstance: {fileID: 525484490116953387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &571197411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571197408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/monster_Foot_steps
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 50
 --- !u!1 &576462734
 GameObject:
   m_ObjectHideFlags: 0
@@ -33996,12 +34024,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1654553276 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5507548364550185267, guid: c57831b5adcce6a478604cf6f9e2300c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1119385978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1663593304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41512,6 +41534,25 @@ Transform:
   m_Father: {fileID: 1787212526}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1956617354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 525484490567198888, guid: 940c43efdfbb262458af26d8abc1b640,
+    type: 3}
+  m_PrefabInstance: {fileID: 525484490116953387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1956617358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956617354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf0307b19d1560409b7851df65fcff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &1965599829
 GameObject:
   m_ObjectHideFlags: 0
