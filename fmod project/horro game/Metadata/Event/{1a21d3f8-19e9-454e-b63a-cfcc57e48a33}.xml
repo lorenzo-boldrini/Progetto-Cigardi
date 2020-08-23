@@ -56,7 +56,11 @@
 			<destination>{3cfe870e-164e-4a4f-b787-e9d5d6fe9845}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{be6c6197-eb26-4f22-b8ee-a2fc385bb74e}" />
+	<object class="EventAutomatableProperties" id="{be6c6197-eb26-4f22-b8ee-a2fc385bb74e}">
+		<property name="dopplerEnabled">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{863433f9-acf6-4351-80d4-5a07035bb8c7}" />
 	<object class="GroupTrack" id="{24bbdf71-8256-4494-b6ea-477d058b79cb}">
 		<relationship name="modules">
@@ -104,9 +108,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{9b6e009c-a8e7-402a-9db3-859be16adba5}">
-		<property name="volume">
-			<value>-13.5</value>
-		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -140,73 +141,14 @@
 		<property name="nameOfPropertyBeingModulated">
 			<value>startOffset</value>
 		</property>
-		<property name="amount">
-			<value>10.5</value>
-		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{d600b28f-5f65-45de-ab11-986378bf3af9}">
 		<relationship name="effects">
 			<destination>{12f03890-5a16-4e81-8f26-66cc3cdde55b}</destination>
-			<destination>{b02d8fe7-5948-429e-b3fc-c183346e41b0}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0d557ab2-5a5f-4765-a590-027382aafb0c}" />
 	<object class="MixerBusFader" id="{8d395061-2ae2-42c8-b98d-86a03c7e14cf}" />
 	<object class="SpatialiserEffect" id="{13390306-dd7b-48d8-bba3-49737fb68660}" />
 	<object class="MixerBusFader" id="{12f03890-5a16-4e81-8f26-66cc3cdde55b}" />
-	<object class="SFXReverbEffect" id="{b02d8fe7-5948-429e-b3fc-c183346e41b0}">
-		<property name="decayTime">
-			<value>1100</value>
-		</property>
-		<property name="earlyDelay">
-			<value>64</value>
-		</property>
-		<property name="lateDelay">
-			<value>24</value>
-		</property>
-		<property name="HFReference">
-			<value>3200</value>
-		</property>
-		<property name="lowShelfGain">
-			<value>-10.5</value>
-		</property>
-		<property name="highCut">
-			<value>2900</value>
-		</property>
-		<property name="wetLevel">
-			<value>-4</value>
-		</property>
-		<property name="dryLevel">
-			<value>-0.5</value>
-		</property>
-		<relationship name="modulators">
-			<destination>{a5dcbd11-d086-42ba-b290-435a0f57cc99}</destination>
-			<destination>{9065f982-2968-46db-97c1-feb62896c583}</destination>
-			<destination>{44959796-14e1-4d61-9331-001deb7c7301}</destination>
-		</relationship>
-	</object>
-	<object class="RandomizerModulator" id="{a5dcbd11-d086-42ba-b290-435a0f57cc99}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>wetLevel</value>
-		</property>
-		<property name="amount">
-			<value>21</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{9065f982-2968-46db-97c1-feb62896c583}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>lowShelfGain</value>
-		</property>
-		<property name="amount">
-			<value>49</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{44959796-14e1-4d61-9331-001deb7c7301}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>decayTime</value>
-		</property>
-		<property name="amount">
-			<value>37.5</value>
-		</property>
-	</object>
 </objects>
