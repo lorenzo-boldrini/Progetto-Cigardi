@@ -72,7 +72,7 @@ public class movement : MonoBehaviour
         _anim.SetFloat("moveX", Speed);
 
 
-        Vector3 move = transform.right * X + transform.forward * Z;
+        Vector3 move = transform.right * X + transform.forward * Speed;
 
         _CC.Move(move * LRSpeed * Time.deltaTime);
 
@@ -82,7 +82,7 @@ public class movement : MonoBehaviour
         }
         if (Input.GetButton("Run") && Input.GetAxis("Vertical") != 0 && RunBarCounter > 0)
         {
-            Speed = Z * 2;
+            Speed = Z * 4;
             RunBarCounter -= 1 * Time.deltaTime;
         }
         else if(Input.GetAxis("Vertical") == 0)
