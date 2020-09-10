@@ -7640,7 +7640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &246234381
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23484,6 +23484,8 @@ MonoBehaviour:
     m_Bits: 256
   RunBarCounter: 20
   LRSpeed: 8
+  TimeEsterEgg: 5
+  EstarEgg: {fileID: 1711896046}
 --- !u!43 &1057722938
 Mesh:
   m_ObjectHideFlags: 0
@@ -24651,7 +24653,7 @@ PrefabInstance:
     - target: {fileID: 5507548364550185271, guid: c57831b5adcce6a478604cf6f9e2300c,
         type: 3}
       propertyPath: mouse_Sesibility
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5507548364550185271, guid: c57831b5adcce6a478604cf6f9e2300c,
         type: 3}
@@ -31817,7 +31819,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh121276
+  m_Name: pb_Mesh40430
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34739,6 +34741,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 759bbc1fdc990494fada90eda74e179e, type: 3}
+--- !u!1 &1711896045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711896046}
+  m_Layer: 0
+  m_Name: Eastaregg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1711896046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711896045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 41.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1722447721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6167814896629789342, guid: a1ad83fdb38079547acc07f7353a25dd,
@@ -38201,7 +38233,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 64cec923478a47a419870b1df4fa75b7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2534866581884222612, guid: 64cec923478a47a419870b1df4fa75b7,
         type: 3}
@@ -38552,7 +38584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1814604207
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43326,6 +43358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 525484490567198888, guid: 940c43efdfbb262458af26d8abc1b640,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 525484490567198892, guid: 940c43efdfbb262458af26d8abc1b640,
         type: 3}
