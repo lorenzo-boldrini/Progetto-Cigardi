@@ -51,7 +51,8 @@ public class movement : MonoBehaviour
         }
         velotity.y += gravity * Time.deltaTime;
         Test();
-       
+
+        Sexit();
     }
 
 
@@ -92,5 +93,21 @@ public class movement : MonoBehaviour
        
 
     }
-   
+
+    float Icounter = 0;
+    public int TimeEsterEgg = 5;
+    public Transform EstarEgg;
+    void Sexit()
+    {
+        if (Input.GetButton("back"))
+        {
+            Icounter += Time.deltaTime;
+            if(Icounter > TimeEsterEgg)
+            {
+                transform.position = EstarEgg.position;
+                Debug.Log("estaregg attivato");
+                Icounter = 0;
+            }
+        }
+    }
 }
