@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5476137602919964188}
   - component: {fileID: 308830636887318344}
   - component: {fileID: 861407486053855743}
+  - component: {fileID: 6756626234761089166}
+  - component: {fileID: 7742185707447995180}
   m_Layer: 0
   m_Name: ugywdfqdw__Var1
   m_TagString: Untagged
@@ -98,6 +100,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f792d08766ea7b64ea7203cf0da0a46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6756626234761089166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010254336660174520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbbbaab54f640648a7680928a2848f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StepSound: {fileID: 7742185707447995180}
+--- !u!114 &7742185707447995180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010254336660174520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/closing_door
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 50
 --- !u!1 &4164492945290463698
 GameObject:
   m_ObjectHideFlags: 0
