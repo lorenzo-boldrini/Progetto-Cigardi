@@ -47,8 +47,13 @@ public class Waypoint : MonoBehaviour
                 Gizmos.DrawSphere(SWaypoint.transform.position, 0.5f);
                 Gizmos.DrawLine(SWaypoint.transform.position, waypoint[waypointcounter].transform.position);
             }
+            else
+            {
+                break;
+            }
 
             Gizmos.DrawWireSphere(SWaypoint.transform.position, areaWaypoint);
         }
+        
     }
 }
