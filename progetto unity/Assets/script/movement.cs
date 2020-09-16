@@ -5,7 +5,6 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     public Animator _anim;
-    Rigidbody _RG;
     CharacterController _CC;
 
     public float Speed = 12f;
@@ -26,7 +25,6 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        _RG = GetComponent<Rigidbody>();
         _CC = GetComponent<CharacterController>();
     }
 
