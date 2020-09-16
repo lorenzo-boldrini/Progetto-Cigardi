@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{5c793cb0-0bf2-466f-a37a-342831b180fb}">
+		<property name="assetPath">
+			<value>429315__tomycatts__27-jadeos.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.045283446712018</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0624b5a3-308f-4d71-868a-168afccb80f5}</destination>
+		</relationship>
+	</object>
+</objects>

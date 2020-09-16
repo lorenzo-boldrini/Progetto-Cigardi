@@ -33,7 +33,7 @@ public class movement : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetButton("Run") == false && RunBarCounter <= 20)
+        if (Input.GetButton("Run") == false && RunBarCounter <= 15)
         {
             RunBarCounter += 1 * Time.deltaTime;
             if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
