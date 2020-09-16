@@ -105,7 +105,7 @@ MonoBehaviour:
   Path: event:/monster_Foot_steps
   guid: f8d3211ae9194e45b63acfcc57e48a33
   Banks:
-  - {fileID: 2758894129730547656}
+  - {fileID: 782569470326459917}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -181,18 +181,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 6501803286541343060}
-  - {fileID: 2758894129730547656}
+  - {fileID: 782569470326459917}
   EditorEvents:
   - {fileID: 7113749709140556011}
   - {fileID: 5780155873386819905}
   - {fileID: -4461697159324512565}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2758894129730547656}
+  - {fileID: 782569470326459917}
   StringsBanks:
   - {fileID: 6501803286541343060}
-  stringsBankWriteTime: 637353521817568285
+  stringsBankWriteTime: 637358518671933118
   cacheVersion: 3
+--- !u!114 &782569470326459917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod_Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637358518671913195
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &984217036693297166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +246,7 @@ MonoBehaviour:
   lastModified: 637353521817568285
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &4088363509981446921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +281,7 @@ MonoBehaviour:
   guid: 9f9d27b93eedc04997c237a71b1d89c2
   Banks:
   - {fileID: 8671988054520274710}
-  - {fileID: 2758894129730547656}
+  - {fileID: 782569470326459917}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -285,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Fmod_Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637353521817568285
+  lastModified: 637358518671933118
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -307,7 +325,7 @@ MonoBehaviour:
   guid: 8c66ebd3d4072246ad3e8f09583e2540
   Banks:
   - {fileID: 8671988054520274710}
-  - {fileID: 2758894129730547656}
+  - {fileID: 782569470326459917}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
