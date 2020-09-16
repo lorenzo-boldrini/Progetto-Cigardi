@@ -5,7 +5,8 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     public Animator _anim;
-    public CharacterController controller;
+    Rigidbody _RG;
+    CharacterController _CC;
 
     public float Speed = 12f;
 
@@ -21,66 +22,92 @@ public class movement : MonoBehaviour
 
     public float RunBarCounter = 20;
 
-
+    public float LRSpeed;
     // Start is called before the first frame update
     public void Start()
     {
-        Input_Manager.INPUTMAN.Walk.AddListener(Test);
+        _RG = GetComponent<Rigidbody>();
+        _CC = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
 
     private void Update()
     {
-        Debug.Log(RunBarCounter);
 
         if (Input.GetButton("Run") == false && RunBarCounter <= 20)
         {
-            Debug.Log("Riprendi il fiato");
             RunBarCounter += 1 * Time.deltaTime;
             if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
                 RunBarCounter += 1 * Time.deltaTime;
         }
-    }
-
-    void Test()
-    {
-        if (Input.GetAxis("Vertical") != 0 && Input.GetAxis("Run") == 0)
-        {
-
-            Speed = 10;
-            _anim.SetBool("Run", false);
-        }
-        if (Input.GetButton("Run") && Input.GetAxis("Vertical") != 0)
-        {
-            RunBarCounter -= 1 * Time.deltaTime;
-            _anim.SetBool("Run", true);
-            Speed = 20;
-        }
 
 
 
-            IsGrounded = Physics.CheckSphere(Groundceck.position, GroundDistance, GroundMask);
+        IsGrounded = Physics.CheckSphere(Groundceck.position, GroundDistance, GroundMask);
         if (IsGrounded && velotity.y < 0)
         {
             velotity.y = -2f;
         }
+        velotity.y += gravity * Time.deltaTime;
+        Test();
+
+        Sexit();
+    }
+
+
+  
+    void Test()
+    {
+
+
+
+           
         float X = Input.GetAxis("Horizontal");
         float Z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * X + transform.forward * Z;
 
-        controller.Move(move * Speed * Time.deltaTime);
-
-        velotity.y += gravity * Time.deltaTime;
-        controller.Move(velotity * Time.deltaTime);
-
-        _anim.SetFloat("inputX", Z);
-        _anim.SetFloat("inputZ", X);
+        _anim.SetFloat("moveZ", X);
 
 
+        _anim.SetFloat("moveX", Speed);
+
+
+        Vector3 move = transform.right * X + transform.forward * Speed;
+
+        _CC.Move(move * LRSpeed * Time.deltaTime);
+
+        if (Input.GetAxis("Vertical") > 0.1f)
+        {
+            Speed = Z;
+        }
+        if (Input.GetButton("Run") && Input.GetAxis("Vertical") != 0 && RunBarCounter > 0)
+        {
+            Speed = Z * 4;
+            RunBarCounter -= 1 * Time.deltaTime;
+        }
+        else if(Input.GetAxis("Vertical") == 0)
+        {
+            Speed = 0;
+        }
+       
 
     }
 
-   
+    float Icounter = 0;
+    public int TimeEsterEgg = 5;
+    public Transform EstarEgg;
+    void Sexit()
+    {
+        if (Input.GetButton("back"))
+        {
+            Icounter += Time.deltaTime;
+            if(Icounter > TimeEsterEgg)
+            {
+                transform.position = EstarEgg.position;
+                Debug.Log("estaregg attivato");
+                Icounter = 0;
+            }
+        }
+    }
 }
