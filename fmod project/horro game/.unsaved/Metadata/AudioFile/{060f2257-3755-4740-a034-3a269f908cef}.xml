@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{060f2257-3755-4740-a034-3a269f908cef}">
+		<property name="assetPath">
+			<value>123311__remoz__feu-venere02.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.531224489795918</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0624b5a3-308f-4d71-868a-168afccb80f5}</destination>
+		</relationship>
+	</object>
+</objects>
